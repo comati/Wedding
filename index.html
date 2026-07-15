@@ -17,16 +17,6 @@
         .lenis.lenis-stopped { overflow: hidden; }
         .lenis.lenis-scrolling iframe { pointer-events: none; }
 
-        /* Custom Header */
-        header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(248, 250, 252, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 2rem;
-        }
-
         /* Hide scrollbar for clean look */
         ::-webkit-scrollbar { display: none; }
 
@@ -44,8 +34,8 @@
 <body>
 
     <!-- Header Desktop & Mobile -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="main-header">
-        <div class="absolute inset-0 bg-white/95 backdrop-blur-md border-b border-stone-200/50 shadow-sm header-bg"></div>
+        <header class="fixed top-0 left-0 w-full z-[60] transition-transform duration-500" id="main-header">
+        <div class="absolute inset-0 bg-white/95 backdrop-blur-md border-b border-stone-200/50 shadow-sm header-bg transition-colors duration-300"></div>
         <div class="relative z-10 w-full max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
             <!-- Logo -->
@@ -55,22 +45,71 @@
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden lg:flex items-center gap-8">
+            <nav class="hidden lg:flex items-center gap-8 h-full">
                 <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative">Acasă</a>
-                <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative">Flota</a>
+
+                <!-- Mega Menu Flota -->
                 <div class="relative group h-full flex items-center">
                     <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative flex items-center gap-1 cursor-pointer">
-                        Servicii <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        Flota <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+
+                    <!-- Mega Menu Dropdown -->
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-0 pt-4 w-[800px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                        <div class="bg-white shadow-2xl rounded-2xl border border-stone-100 p-8 grid grid-cols-3 gap-6 relative">
+                            <!-- Arrow -->
+                            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-stone-100 rotate-45"></div>
+
+                            <a href="#" class="group/item block rounded-xl overflow-hidden bg-stone-50 hover:shadow-md transition-all">
+                                <div class="h-32 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1503370221370-984e7275d2ec?auto=format&fit=crop&w=500&q=80" alt="Rolls Royce" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-4 bg-white">
+                                    <h3 class="font-serif text-lg text-slate-900 mb-1">Rolls Royce Phantom</h3>
+                                    <p class="text-[10px] text-stone-500 uppercase tracking-wider">The Ultimate Luxury</p>
+                                </div>
+                            </a>
+                            <a href="#" class="group/item block rounded-xl overflow-hidden bg-stone-50 hover:shadow-md transition-all">
+                                <div class="h-32 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1549314541-11a5ab5ccf1f?auto=format&fit=crop&w=500&q=80" alt="Bentley" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-4 bg-white">
+                                    <h3 class="font-serif text-lg text-slate-900 mb-1">Bentley Mulsanne</h3>
+                                    <p class="text-[10px] text-stone-500 uppercase tracking-wider">Refined Elegance</p>
+                                </div>
+                            </a>
+                            <a href="#" class="group/item block rounded-xl overflow-hidden bg-stone-50 hover:shadow-md transition-all">
+                                <div class="h-32 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=500&q=80" alt="Mercedes S Class" class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-4 bg-white">
+                                    <h3 class="font-serif text-lg text-slate-900 mb-1">Mercedes S-Class</h3>
+                                    <p class="text-[10px] text-stone-500 uppercase tracking-wider">Modern Comfort</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown Servicii -->
+                <div class="relative group h-full flex items-center">
+                    <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative flex items-center gap-1 cursor-pointer">
+                        Servicii <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </a>
                     <!-- Dropdown -->
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white shadow-2xl rounded-xl border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0 overflow-hidden">
-                        <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-stone-50 hover:text-amber-700 border-b border-stone-100 transition-colors">Wedding Chauffeur</a>
-                        <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-stone-50 hover:text-amber-700 border-b border-stone-100 transition-colors">Transfer Aeroport VIP</a>
-                        <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-stone-50 hover:text-amber-700 transition-colors">Evenimente Corporate</a>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-0 pt-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                        <div class="bg-white shadow-2xl rounded-2xl border border-stone-100 overflow-hidden relative">
+                             <!-- Arrow -->
+                             <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-stone-100 rotate-45"></div>
+
+                            <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-700 border-b border-stone-100 transition-colors relative z-10">Wedding Chauffeur</a>
+                            <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-700 border-b border-stone-100 transition-colors relative z-10">Transfer Aeroport VIP</a>
+                            <a href="#" class="block px-6 py-4 text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-700 transition-colors relative z-10">Evenimente Corporate</a>
+                        </div>
                     </div>
                 </div>
                 <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative">Prețuri</a>
-                <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative">Despre Noi</a>
+                <a href="#" class="nav-link text-xs uppercase tracking-widest text-slate-600 font-semibold hover:text-slate-900 relative">Contact</a>
             </nav>
 
             <!-- Actions / Mobile Toggle -->
@@ -82,30 +121,62 @@
                 <button class="hidden md:block px-8 py-3 bg-slate-900 text-white text-xs uppercase tracking-widest rounded-full hover:bg-amber-800 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">Rezervă</button>
 
                 <!-- Hamburger -->
-                <button id="mobile-menu-btn" class="lg:hidden relative w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50">
+                <button id="mobile-menu-btn" class="lg:hidden relative w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-[60]">
                     <span class="w-6 h-[2px] bg-slate-900 block transition-all duration-300 origin-center line-1"></span>
                     <span class="w-6 h-[2px] bg-slate-900 block transition-all duration-300 origin-center line-2"></span>
                     <span class="w-6 h-[2px] bg-slate-900 block transition-all duration-300 origin-center line-3"></span>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 text-white z-40 hidden flex-col justify-center items-center">
-            <nav class="flex flex-col items-center gap-8 w-full px-6">
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Acasă</a>
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Flota Nostră</a>
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Servicii Nuntă</a>
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Transfer Aeroport</a>
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Prețuri & Pachete</a>
-                <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Contact</a>
-                <div class="mt-8 pt-8 border-t border-white/20 w-full max-w-sm text-center mobile-link opacity-0 translate-y-8">
-                    <button class="w-full py-4 bg-amber-600 text-white uppercase tracking-widest text-sm rounded-full mb-4">Rezervă Acum</button>
-                    <p class="text-stone-400 font-serif italic">+44 20 7946 0958</p>
-                </div>
-            </nav>
-        </div>
     </header>
+
+    <!-- Fullscreen Mobile Menu (Separated from Header to avoid scroll transform issues) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl text-white z-50 flex-col justify-start items-center pt-36 pb-12 overflow-y-auto hidden">
+        <nav class="flex flex-col items-center gap-6 w-full px-8">
+            <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Acasă</a>
+
+            <!-- Mobile Flota Accordion -->
+            <div class="w-full max-w-sm mobile-link opacity-0 translate-y-8">
+                <button class="mobile-accordion-btn w-full flex items-center justify-center gap-2 text-3xl font-serif hover:text-amber-500 transition-colors focus:outline-none">
+                    Flota <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="mobile-accordion-content hidden flex-col items-center gap-4 mt-6">
+                    <a href="#" class="block w-full text-center group">
+                        <div class="w-full h-32 rounded-xl overflow-hidden mb-2">
+                            <img src="https://images.unsplash.com/photo-1503370221370-984e7275d2ec?auto=format&fit=crop&w=500&q=80" alt="Rolls" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <span class="text-lg font-serif text-stone-300 group-hover:text-amber-400">Rolls Royce Phantom</span>
+                    </a>
+                    <a href="#" class="block w-full text-center group">
+                        <div class="w-full h-32 rounded-xl overflow-hidden mb-2">
+                            <img src="https://images.unsplash.com/photo-1549314541-11a5ab5ccf1f?auto=format&fit=crop&w=500&q=80" alt="Bentley" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <span class="text-lg font-serif text-stone-300 group-hover:text-amber-400">Bentley Mulsanne</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Servicii Accordion -->
+            <div class="w-full max-w-sm mobile-link opacity-0 translate-y-8">
+                <button class="mobile-accordion-btn w-full flex items-center justify-center gap-2 text-3xl font-serif hover:text-amber-500 transition-colors focus:outline-none">
+                    Servicii <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="mobile-accordion-content hidden flex-col items-center gap-4 mt-6 bg-white/5 p-4 rounded-xl">
+                    <a href="#" class="text-xl font-serif text-stone-300 hover:text-amber-400">Wedding Chauffeur</a>
+                    <a href="#" class="text-xl font-serif text-stone-300 hover:text-amber-400">Transfer Aeroport VIP</a>
+                    <a href="#" class="text-xl font-serif text-stone-300 hover:text-amber-400">Evenimente Corporate</a>
+                </div>
+            </div>
+
+            <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Prețuri</a>
+            <a href="#" class="mobile-link text-3xl font-serif hover:text-amber-500 transition-colors opacity-0 translate-y-8">Contact</a>
+
+            <div class="mt-8 pt-8 border-t border-white/20 w-full max-w-sm text-center mobile-link opacity-0 translate-y-8">
+                <button class="w-full py-4 bg-amber-600 text-white uppercase tracking-widest text-sm rounded-full mb-4">Rezervă Acum</button>
+                <p class="text-stone-400 font-serif italic">+44 20 7946 0958</p>
+            </div>
+        </nav>
+    </div>
 
 
     <main class="pt-[80px]">
@@ -458,6 +529,7 @@
         gsap.ticker.add((time)=>{ lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
+        let menuOpen = false;
 
         // Header Scroll Animation
         let lastScrollY = window.scrollY;
@@ -475,8 +547,8 @@
                 headerBg.classList.replace('bg-white/100', 'bg-white/95');
             }
 
-            // Hide header on scroll down, show on scroll up
-            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+            // Hide header on scroll down, show on scroll up - ONLY if menu is closed
+            if (window.scrollY > lastScrollY && window.scrollY > 100 && !menuOpen) {
                 header.style.transform = 'translateY(-100%)';
             } else {
                 header.style.transform = 'translateY(0)';
@@ -488,31 +560,88 @@
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-        let menuOpen = false;
-        let menuTl = gsap.timeline({ paused: true });
+        const headerLines = [
+            menuBtn.querySelector('.line-1'),
+            menuBtn.querySelector('.line-2'),
+            menuBtn.querySelector('.line-3')
+        ];
 
-        // Build animation
-        menuTl.set(mobileMenu, { display: 'flex' })
-              .fromTo(mobileMenu, { opacity: 0, clipPath: 'circle(0% at 100% 0)' }, { opacity: 1, clipPath: 'circle(150% at 100% 0)', duration: 0.8, ease: 'power3.inOut' })
-              .to(mobileLinks, { y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: 'back.out(1.5)' }, "-=0.4");
+        // Setup GSAP Timeline for Menu
+        let menuTl = gsap.timeline({ paused: true, defaults: { ease: "power4.inOut" } });
+
+        menuTl.to(mobileMenu, {
+            display: "flex",
+            duration: 0
+        })
+        .fromTo(mobileMenu, {
+            clipPath: "circle(0% at 100% 0%)"
+        }, {
+            clipPath: "circle(150% at 100% 0%)",
+            duration: 0.8
+        })
+        .to(mobileLinks, {
+            y: 0,
+            opacity: 1,
+            stagger: 0.05,
+            duration: 0.6
+        }, "-=0.4");
 
         menuBtn.addEventListener('click', () => {
             menuOpen = !menuOpen;
+
             if (menuOpen) {
-                menuBtn.classList.add('is-open');
-                lenis.stop(); // Prevent scrolling while menu is open
+                // Animate Hamburger to X
+                headerLines[0].classList.add('rotate-45', 'translate-y-[7.5px]', 'bg-amber-600');
+                headerLines[0].classList.remove('bg-slate-900');
+                headerLines[1].classList.add('opacity-0');
+                headerLines[2].classList.add('-rotate-45', '-translate-y-[7.5px]', 'bg-amber-600');
+                headerLines[2].classList.remove('bg-slate-900');
+
+                // Block body scroll
+                document.body.style.overflow = 'hidden';
+                lenis.stop();
+
                 menuTl.play();
             } else {
-                menuBtn.classList.remove('is-open');
+                // Revert X to Hamburger
+                headerLines[0].classList.remove('rotate-45', 'translate-y-[7.5px]', 'bg-amber-600');
+                headerLines[0].classList.add('bg-slate-900');
+                headerLines[1].classList.remove('opacity-0');
+                headerLines[2].classList.remove('-rotate-45', '-translate-y-[7.5px]', 'bg-amber-600');
+                headerLines[2].classList.add('bg-slate-900');
+
+                // Allow body scroll
+                document.body.style.overflow = '';
                 lenis.start();
+
                 menuTl.reverse();
+
+                // Close any open accordions
+                document.querySelectorAll('.mobile-accordion-content').forEach(el => {
+                    gsap.to(el, {height: 0, opacity: 0, duration: 0.3, onComplete: () => el.classList.add('hidden')});
+                });
+                document.querySelectorAll('.mobile-accordion-btn svg').forEach(el => {
+                    el.style.transform = 'rotate(0deg)';
+                });
             }
         });
 
-        // Close menu on link click
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if(menuOpen) { menuBtn.click(); }
+        // Mobile Accordion Logic
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+        accordionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('svg');
+                const isHidden = content.classList.contains('hidden');
+
+                if (isHidden) {
+                    content.classList.remove('hidden');
+                    gsap.fromTo(content, { height: 0, opacity: 0 }, { height: 'auto', opacity: 1, duration: 0.4, ease: "power2.out" });
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    gsap.to(content, { height: 0, opacity: 0, duration: 0.3, ease: "power2.in", onComplete: () => content.classList.add('hidden') });
+                    icon.style.transform = 'rotate(0deg)';
+                }
             });
         });
 
